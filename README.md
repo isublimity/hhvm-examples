@@ -19,5 +19,10 @@ Repo schema: b3632a5f67c4172817a5017fb18eeb1a3b5be51a
 
 # ex2
 
+> cd ./ex02-th-loop
+
 > tail -f /var/hhvm/error.log ./log.txt
+
+# ex3
+
 
