@@ -1,20 +1,13 @@
-
-
 Server {
         Port = 80
         SourceRoot = /media/psf/sites/hhvm-examples/ex02-th-loop/
 
         ThreadCount = 2
-        #  IncludeSearchPaths {
-        #    * = --write-me-IA_ROOT_DIR--www/
-        #  }
 
 # startup options
 #TakeoverFilename = filename   # for port takeover between server instances
 DefaultDocument = index.php
-#StartupDocument=zStartupDocument.php
-WarmupDocument = zWarmupDocument.php
-
+StartupDocument = zStartupDocument.php
 RequestInitFunction = function_RequestInitDocument
 RequestInitDocument = zRequestInitDocument.php
 
@@ -56,8 +49,6 @@ Xbox {
     DefaultLocalTimeoutMilliSeconds = 500
     DefaultRemoteTimeoutSeconds = 5
 }
-
-
 
 Log {
   Level = Info

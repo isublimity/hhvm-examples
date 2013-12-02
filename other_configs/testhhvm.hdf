@@ -71,20 +71,8 @@ ThreadLoopDocuments {
         # Forcing $_SERVER['SERVER_NAME'] to come from request header
         ForceServerNameToHeader = false
 
-        ### startup options
-        # TakeoverFilename = filename   # for port takeover between server instances
-        # DefaultDocument = index.php
-        # StartupDocument = filename
-        # WarmupDocument = filename
-        # RequestInitFunction = function_name
-        # ThreadDocuments {
-        #     * = somedoc.php
-        #     * = another.php
-        # }
 
-        # ErrorDocument404 = 404.php
-
-        FatalErrorMessage = Something went terribly wrong... Check back :)
+       FatalErrorMessage = Something went terribly wrong... Check back :)
 
 
 
