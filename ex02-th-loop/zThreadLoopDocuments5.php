@@ -1,5 +1,4 @@
 <?php
-// load base class
-include 'class/inc.php';
-log::msg("Tik-5-sec");
+
+log::msg("TikTik by 5 second");
 sleep(5);
