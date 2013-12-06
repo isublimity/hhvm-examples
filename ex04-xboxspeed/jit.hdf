@@ -1,0 +1,57 @@
+Eval {
+  EnableXHP = true
+  Jit = true
+  JitASize = 10485760 # 10 MB
+  JitAStubsSize = 10485760 # 10 MB
+  JitGlobalDataSize = 2097152 # 2 MB
+  JitEnableRenameFunction = true
+  EnableZendCompat = true
+}
+
+Xbox {
+    ServerInfo {
+      ThreadCount = 1
+      Port = 0
+      MaxRequest = 10
+      MaxDuration = 2
+      RequestInitDocument = xtx.php
+      #RequestInitFunction = my_xboxInit
+    }
+    ProcessMessageFunc = xbox_process_message
+    DefaultLocalTimeoutMilliSeconds = 500
+    DefaultRemoteTimeoutSeconds = 5
+}
+Server {
+    Port = 9800
+    SourceRoot = ./
+    DefaultDocument = index.php
+    ThreadCount =2
+
+# HTTP settings
+    GzipCompressionLevel = 0
+    EnableMagicQuotesGpc = false
+    EnableKeepAlive = true
+    EnableEarlyFlush = true
+    ForceChunkedEncoding = false
+    MaxPostSize = 8  # in MB
+    LibEventSyncSend = true
+    ResponseQueueCount = 0
+
+}
+
+
+
+Log {
+  Level = Info
+  AlwaysLogUnhandledExceptions = true
+  RuntimeErrorReportingLevel = 8191
+  UseLogFile = true
+  UseSyslog = false
+  File = /var/hhvm/error.log
+  Access {
+    * {
+      File = /var/hhvm/access.log
+      Format = %h %l %u % t \”%r\” %>s %b
+    }
+  }
+}
