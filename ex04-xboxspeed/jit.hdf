@@ -14,8 +14,11 @@ Xbox {
       Port = 0
       MaxRequest = 10
       MaxDuration = 2
-      RequestInitDocument = xtx.php
-      #RequestInitFunction = my_xboxInit
+      #WarmupDocument = /media/psf/sites/hhvm-examples/ex04-xboxspeed/threadWarmupXbox.php
+      RequestInitDocument = threadXboxProcess.php
+      RequestInitFunction = xbox_process_init
+      LogInfo = true
+
     }
     ProcessMessageFunc = xbox_process_message
     DefaultLocalTimeoutMilliSeconds = 500
@@ -25,6 +28,9 @@ Server {
     Port = 9800
     SourceRoot = ./
     DefaultDocument = index.php
+    RequestInitDocument = init.php
+    RequestInitFunction = iinint
+
     ThreadCount =2
 
 # HTTP settings
@@ -42,12 +48,20 @@ Server {
 
 
 Log {
-  Level = Info
-  AlwaysLogUnhandledExceptions = true
-  RuntimeErrorReportingLevel = 8191
-  UseLogFile = true
-  UseSyslog = false
-  File = /var/hhvm/error.log
+    ApplicationLog = true
+
+    Level = Verbose
+    NoSilencer = false
+    AlwaysLogUnhandledExceptions = true
+    RuntimeErrorReportingLevel = 8191
+    Header = false
+    InjectedStackTrace = true
+    NativeStackTrace = true
+    MaxMessagesPerRequest = -1
+
+    UseLogFile = true
+    File = /var/hhvm/error.log
+
   Access {
     * {
       File = /var/hhvm/access.log

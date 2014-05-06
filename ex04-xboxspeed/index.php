@@ -13,6 +13,7 @@ function async_store_data($message) {
 
 
 }
+file_put_contents("/tmp/log.log",date("Y-m-d H:i:s")."\t".('req')."\n",FILE_APPEND);
 if (!apc_exists('loop_counter')) apc_store('loop_counter',0);
 apc_inc('loop_counter');
 $count=apc_fetch('loop_counter');
